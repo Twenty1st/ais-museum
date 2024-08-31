@@ -1,0 +1,26 @@
+﻿<Window x:Class="museumAIS.mainAdministratorForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        Title="Главное меню" 
+        Height="339.6" Width="303.2" 
+        WindowStyle="None"
+        BorderThickness="1"
+        FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" ResizeMode="NoResize" Background="#FFB3F3FF" Closed="Window_Closed" BorderBrush="Black">
+    <Grid>
+        <local:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="15,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Label x:Name="welcommsgLabel" Content="Здравствуйте, " HorizontalAlignment="Left" Margin="15,58,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="goUserFButton" Content="Пользователи" HorizontalAlignment="Left" Margin="67,111,0,0" VerticalAlignment="Top" Width="167" Height="30" Click="goUserFButton_Click" Background="#FFFFD7B2"/>
+
+        <Button x:Name="goDBWorkButton" Content="База данных" HorizontalAlignment="Left" Margin="67,220,0,0" VerticalAlignment="Top" Width="167" Height="30" Click="goDBWorkButton_Click" Background="#FFFFD7B2"/>
+        <Button x:Name="goTablesWorkButton" Content="Импорт/Экспорт" HorizontalAlignment="Left" Margin="67,164,0,0" VerticalAlignment="Top" Width="167" Height="30" Click="goTablesWorkButton_Click" Background="#FFFFD7B2"/>
+        <Button x:Name="handBooksButton" Content="Справочники" HorizontalAlignment="Left" Margin="67,270,0,0" VerticalAlignment="Top" Width="167" Height="30" Background="#FFFFD7B2" Click="handBooksButton_Click"/>
+        <Label Content="Главное меню" HorizontalAlignment="Left" Margin="100,24,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Администратор" HorizontalAlignment="Left" Margin="202,0,0,0" VerticalAlignment="Top" FontSize="12"/>
+
+    </Grid>
+</Window>

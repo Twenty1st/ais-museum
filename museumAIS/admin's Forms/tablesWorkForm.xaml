@@ -1,0 +1,27 @@
+﻿<Window x:Class="museumAIS.tablesWorkForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        BorderThickness="1"
+        Title="Работа с данными" Height="314.4" Width="500" FontSize="14" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" PreviewMouseMove="Window_PreviewMouseMove" PreviewKeyDown="Window_PreviewKeyDown" WindowStyle="None" Background="#FFB3F3FF" Closed="Window_Closed" BorderBrush="Black">
+    <Grid>
+        <Button x:Name="exportButton" Content="Экспорт" HorizontalAlignment="Left" Margin="347,124,0,0" VerticalAlignment="Top" Width="123" Click="exportButton_Click" Height="25" Background="#FFFFD7B2"/>
+        <Label Content="Экспорт" HorizontalAlignment="Left" Margin="19,56,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="expTableBox" HorizontalAlignment="Left" Margin="33,124,0,0" VerticalAlignment="Top" Width="220" PreviewTextInput="expTableBox_PreviewTextInput"/>
+        <Label Content="Импорт" HorizontalAlignment="Left" Margin="21,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Выберете таблицу" HorizontalAlignment="Left" Margin="33,90,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="importButton" Content="Импорт" HorizontalAlignment="Left" Margin="395,274,0,0" VerticalAlignment="Top" Width="75" Click="importButton_Click_1" Height="22" Background="#FFFFD7B2"/>
+        <Label Content="Выберете файл" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top"/>
+        <local:exitButtonControl x:Name="goBackButton" Margin="10,10,0,0" Height="32" Width="39" VerticalAlignment="Top" HorizontalAlignment="Left" exitBut_Click="goBackButton_Click"/>
+        <ComboBox x:Name="impTableNameBox" HorizontalAlignment="Left" Margin="199,271,0,0" VerticalAlignment="Top" Width="179" PreviewTextInput="impTableNameBox_PreviewTextInput"/>
+        <Label Content="Выберете таблицу" HorizontalAlignment="Left" Margin="33,267,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="fileNameBox" HorizontalAlignment="Left" Margin="199,221,0,0" VerticalAlignment="Top" Width="271" PreviewTextInput="fileNameBox_PreviewTextInput"/>
+        <Label Content="Импорт/экспорт данных в csv" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" FontSize="12"/>
+
+
+
+    </Grid>
+</Window>

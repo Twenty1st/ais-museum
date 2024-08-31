@@ -1,0 +1,92 @@
+﻿<Window xmlns:museumAIS="clr-namespace:museumAIS"  x:Class="museumAIS.curator_s_Forms.excursForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS.curator_s_Forms" xmlns:userControls="clr-namespace:museumAIS.userControls"
+        mc:Ignorable="d"
+        Title="Рассписание экскурсий" Height="768" Width="988" FontSize="14" WindowStartupLocation="CenterScreen"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" MinWidth="988" MinHeight="768" Background="#FFB3F3FF" Closed="Window_Closed">
+    <Grid Margin="-2,0,1.6,-0.2">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="def_one" Height="494*"/>
+            <RowDefinition x:Name="def_two" Height="267*"/>
+        </Grid.RowDefinitions>
+        <museumAIS:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="19,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <!--<TextBlock Text="{Binding Date, StringFormat={}{0:dd MMM yyyy}}" 
+                                       FontSize="16" FontWeight="Bold" />-->
+        <Button x:Name="rollupButton" Background="Transparent" Margin="96,63,0,0" Width="23" Height="22" RenderTransformOrigin="0.5,0.5" Click="rollupButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform x:Name="rollupButtonRotateTransform" Angle="180"/>
+                    <TranslateTransform />
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Content>
+                <Image Source="/museumAIS;component/icons/icon-roolup.png" Width="20"/>
+            </Button.Content>
+        </Button>
+        <ListView x:Name="CalendarView" MouseDoubleClick="CalendarView_MouseDoubleClick" Margin="23,106,22,17.4" 
+                  BorderBrush="{x:Null}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7"/>
+                    <!--<WrapPanel />-->
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#e2e3e8" BorderThickness="1" Margin="5" Background="{Binding Background}" Width="150" Height="150">
+                        <StackPanel Orientation="Vertical" Margin="2">
+                            <TextBlock Text="{Binding Date, StringFormat={}{0:dd MMMM yyyy}, ConverterCulture=ru-RU}" 
+                                       FontSize="16" FontWeight="Bold" />
+                            <TextBlock Text="{Binding DayOfWeek, ConverterCulture=ru-RU}" FontSize="14" />
+                            <TextBlock Text="{Binding Excursions}" Margin="0,10,0,0" FontSize="12" FontStyle="Italic" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Content="Добавить" Margin="0,0,35,13.6" Click="Button_Click" HorizontalAlignment="Right" Width="154" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Background="#FFFFD7B2"/>
+        <Label Content="Календарь" HorizontalAlignment="Left" Margin="14,58,0,0" VerticalAlignment="Top" Height="29" Width="78"/>
+        <Label Content="Экскурсии" Margin="23,16.6,824,0" Grid.Row="1" Height="35" VerticalAlignment="Top"/>
+        <DataGrid x:Name="excursDataGrid" Margin="14,71.6,35,63.6" AutoGenerateColumns="True"  Background="White" ColumnWidth="*" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" 
+                  CanUserSortColumns="False" CanUserResizeColumns="False"
+                  IsReadOnly="True" Grid.Row="1" SelectionChanged="excursDataGrid_SelectionChanged" LoadingRow="excursDataGrid_LoadingRow">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить" Click="DeleteMenuItem_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF66FFA3" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#FF66FFA3" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="Black" />
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button x:Name="editButton" Content="Редактировать" HorizontalAlignment="Right" Margin="0,0,227,13.6" Width="154" Grid.Row="1" Click="editButton_Click" Height="28" VerticalAlignment="Bottom" Background="#FFFFD7B2" Visibility="Hidden"/>
+
+        <Label x:Name="label1" Content="Залы" Margin="19,0,910,73.4" Height="29" VerticalAlignment="Bottom" Visibility="Hidden"/>
+        <TextBox x:Name="hallsBox" Margin="14,0,35,11.4" 
+                 TextWrapping="Wrap" VerticalScrollBarVisibility="Hidden" IsReadOnlyCaretVisible="True" Height="57" VerticalAlignment="Bottom" Visibility="Hidden"/>
+        <Label Content="Поиск" Margin="0,58,227,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" Height="29"/>
+        <TextBox x:Name="searchBox" Height="23" Margin="0,64,22,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" HorizontalAlignment="Right" Width="200" PreviewKeyDown="searchBox_PreviewKeyDown" PreviewTextInput="searchBox_PreviewTextInput"/>
+
+        <userControls:paginationControl x:Name="paginationControl" Margin="0,11.6,35,0" Height="36" VerticalAlignment="Top" firstPageBut_Click="paginationControl_firstPageBut_Click"
+                                        prevPageBut_Click="paginationControl_prevPageBut_Click" nextPageBut_Click="paginationControl_nextPageBut_Click"
+                                        lastPageBut_Click="paginationControl_lastPageBut_Click" Grid.Row="1" HorizontalAlignment="Right" Width="213"/>
+        <Label Content="Расписание экскурсий" HorizontalAlignment="Left" Margin="83,10,0,0" VerticalAlignment="Top" Height="29" Width="154"/>
+        <Ellipse x:Name="greyColor" Fill="#FFD9D9D9" HorizontalAlignment="Left" Height="13" Margin="19,0,0,36.4" Grid.Row="1" VerticalAlignment="Bottom" Width="15" Stroke="Black" StrokeThickness="0.5" Visibility="Hidden"/>
+        <Label x:Name="greyColorLabel" Content="- прошедшие экскурсии" HorizontalAlignment="Left" Margin="40,0,0,29.4" Grid.Row="1" FontSize="12" Height="27" VerticalAlignment="Bottom" Visibility="Hidden"/>
+        <Ellipse x:Name="redColor" Fill="#FFFCB8B8" HorizontalAlignment="Left" Height="13" Margin="19,0,0,11.4" Grid.Row="1" VerticalAlignment="Bottom" Width="15" Stroke="Black" StrokeThickness="0.5" Visibility="Hidden"/>
+        <Label x:Name="redColorLabel" Content="- еще не начавшиеся экскурсии" HorizontalAlignment="Left" Margin="40,0,0,4.4" Grid.Row="1" VerticalAlignment="Bottom" Height="27" FontSize="12" Visibility="Hidden"/>
+
+
+    </Grid>
+</Window>

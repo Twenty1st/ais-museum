@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C30B4C01-59EC-40C8-B106-76EEE3F6900D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>museumAIS</RootNamespace>
+    <AssemblyName>museumAIS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>иконка.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysqlbackup">
+      <HintPath>..\mysqlbackup.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="admin%27s Forms\handbooksForm.xaml.cs">
+      <DependentUpon>handbooksForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\calculateTime.cs" />
+    <Compile Include="admin%27s Forms\dataBaseWorkForm.xaml.cs">
+      <DependentUpon>dataBaseWorkForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\callMessageBox.cs" />
+    <Compile Include="Classes\chooseDirectories.cs" />
+    <Compile Include="Classes\createGuidReportDoc.cs" />
+    <Compile Include="Classes\createSendDoc.cs" />
+    <Compile Include="Classes\createWordDoc.cs" />
+    <Compile Include="Classes\dellButtonClickEvent.cs" />
+    <Compile Include="Classes\rowItemClickEvent.cs" />
+    <Compile Include="Classes\SessionTimeoutService.cs" />
+    <Compile Include="Classes\userRoot.cs" />
+    <Compile Include="curator%27s Forms\editExcurForm.xaml.cs">
+      <DependentUpon>editExcurForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="curator%27s Forms\editHallForm.xaml.cs">
+      <DependentUpon>editHallForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="curator%27s Forms\editGuidForm.xaml.cs">
+      <DependentUpon>editGuidForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="curator%27s Forms\excursForm.xaml.cs">
+      <DependentUpon>excursForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="keeper%27s Forms\createDocForm.xaml.cs">
+      <DependentUpon>createDocForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="keeper%27s Forms\editEcspDataForm.xaml.cs">
+      <DependentUpon>editEcspDataForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="keeper%27s Forms\otchetForm.xaml.cs">
+      <DependentUpon>otchetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\calendarItem.cs" />
+    <Compile Include="userControls\exitButtonControl.xaml.cs">
+      <DependentUpon>exitButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\generateCaptcha.cs" />
+    <Compile Include="Classes\generatePassword.cs" />
+    <Compile Include="curator%27s Forms\guidsForm.xaml.cs">
+      <DependentUpon>guidsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="curator%27s Forms\hallsForm.xaml.cs">
+      <DependentUpon>hallsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\hashFunction.cs" />
+    <Compile Include="Classes\helpForDB.cs" />
+    <Compile Include="userControls\hallItem.cs" />
+    <Compile Include="userControls\paginationControl.xaml.cs">
+      <DependentUpon>paginationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\rowEcsponat.xaml.cs">
+      <DependentUpon>rowEcsponat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="admin%27s Forms\editUserForm.xaml.cs">
+      <DependentUpon>editUserForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="admin%27s Forms\tablesWorkForm.xaml.cs">
+      <DependentUpon>tablesWorkForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\userData.cs" />
+    <Compile Include="admin%27s Forms\usersForm.xaml.cs">
+      <DependentUpon>usersForm.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="authorizeForm.xaml.cs">
+      <DependentUpon>authorizeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="keeper%27s Forms\ecsponatForm.xaml.cs">
+      <DependentUpon>ecsponatForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="admin%27s Forms\mainAdministratorForm.xaml.cs">
+      <DependentUpon>mainAdministratorForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="curator%27s Forms\mainCuratorForm.xaml.cs">
+      <DependentUpon>mainCuratorForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="keeper%27s Forms\mainKeeperForm.xaml.cs">
+      <DependentUpon>mainKeeperForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="admin%27s Forms\handbooksForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="authorizeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin%27s Forms\dataBaseWorkForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\editExcurForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\editHallForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\editGuidForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="curator%27s Forms\excursForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="keeper%27s Forms\createDocForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="keeper%27s Forms\ecsponatForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="keeper%27s Forms\editEcspDataForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="keeper%27s Forms\otchetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\exitButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\guidsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\hallsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin%27s Forms\mainAdministratorForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="curator%27s Forms\mainCuratorForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="keeper%27s Forms\mainKeeperForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\paginationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\rowEcsponat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin%27s Forms\editUserForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin%27s Forms\tablesWorkForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin%27s Forms\usersForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-generatePWD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-checkPWD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-hidePWD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-choosefile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="keeper%27s Forms\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon-roolup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="иконка.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="userControls\icon-мусор.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Office">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

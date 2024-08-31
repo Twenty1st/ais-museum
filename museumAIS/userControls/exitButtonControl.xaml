@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="museumAIS.exitButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:museumAIS"
+             mc:Ignorable="d"
+             Width="35" Height="30">
+    <Grid>
+        <Button x:Name="exitButton" Click="exitButton_Click" Background="#FFFFD7B2">
+            <Button.Content>
+                <Image Source="/museumAIS;component/icons/icon-exit.png"/>
+            </Button.Content>
+        </Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="museumAIS.editGuidForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        BorderThickness="1"
+        Title="Добавление нового экскурвода" Height="265.2" Width="610" FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" MinWidth="610" WindowStyle="None" ResizeMode="NoResize" MinHeight="265.2" Background="#FFB3F3FF" Closed="Window_Closed" BorderBrush="Black">
+    <Grid>
+        <local:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="15,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Label Content="Управление данными экскурсовода" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="15,88,0,0" TextWrapping="Wrap"  MaxLength="45"
+                 VerticalAlignment="Top" Width="467" PreviewTextInput="nameBox_PreviewTextInput" PreviewKeyDown="nameBox_PreviewKeyDown" TextChanged="nameBox_TextChanged"/>
+        <Label Content="Имя*" HorizontalAlignment="Left" Margin="15,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="pwdVBox" HorizontalAlignment="Left" Height="23" Margin="365,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="133" UndoLimit="6" Visibility="Hidden"/>
+        <Button x:Name="editButton" Content="Добавить" HorizontalAlignment="Left" Margin="500,212,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="editButton_Click" Background="#FFFFD7B2"/>
+        <TextBox x:Name="lastnameBox" HorizontalAlignment="Left" Height="23" Margin="15,145,0,0" TextWrapping="Wrap"  MaxLength="45"
+                 VerticalAlignment="Top" Width="467" KeyDown="lastnameBox_KeyDown" PreviewTextInput="lastnameBox_PreviewTextInput" PreviewKeyDown="lastnameBox_PreviewKeyDown" TextChanged="lastnameBox_TextChanged"/>
+        <Label Content="Фамилия*" HorizontalAlignment="Left" Margin="15,116,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="patronamycBox" HorizontalAlignment="Left" Height="23" Margin="15,212,0,0" TextWrapping="Wrap"  MaxLength="45"
+                 VerticalAlignment="Top" Width="467" PreviewKeyDown="patronamycBox_PreviewKeyDown" PreviewTextInput="patronamycBox_PreviewTextInput" TextChanged="patronamycBox_TextChanged"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="15,178,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

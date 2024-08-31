@@ -1,0 +1,60 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS"
+        xmlns:userControls="clr-namespace:museumAIS.userControls" x:Class="museumAIS.ecsponatForm"
+        mc:Ignorable="d"
+        Title="Экспонаты" 
+        Height="620.4" Width="840" 
+        FontSize="14" 
+        WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" MinWidth="840" MinHeight="620" Background="#FFB3F3FF" Closed="Window_Closed">
+    <Grid Margin="0,0,-0.4,-3.4">
+        <local:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="18,10,0,0" Width="50" Height="44" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Button x:Name="addButton" Margin="0,0,14,16" Content="Добавить" Click="addButton_Click" HorizontalAlignment="Right" Width="98" Height="30" VerticalAlignment="Bottom" Background="#FFFFD7B2"/>
+        <ScrollViewer Margin="0,130,1,110.6">
+            <StackPanel x:Name="dataViewG" Orientation="Vertical"/>
+        </ScrollViewer>
+
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="18,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="searchBox" Height="23" Margin="21,90,484,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="searchBox_TextChanged" PreviewKeyDown="searchBox_PreviewKeyDown" PreviewTextInput="searchBox_PreviewTextInput"/>
+        <ComboBox x:Name="sortBox" Margin="0,88,271,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" SelectionChanged="sortBox_SelectionChanged" PreviewTextInput="sortBox_PreviewTextInput"/>
+        <ComboBox x:Name="filterBox" Margin="0,90,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" SelectionChanged="filterBox_SelectionChanged" PreviewTextInput="filterBox_PreviewTextInput"/>
+        <Label Content="Сортировка" Margin="0,54,335,0" HorizontalAlignment="Right" Width="86" Height="29" VerticalAlignment="Top"/>
+        <Label Content="Фильтрация" Margin="0,54,72,0" HorizontalAlignment="Right" Width="88" Height="29" VerticalAlignment="Top"/>
+        <Label Content="Сформировать отчет о ревизии" Margin="0,20,156,0" HorizontalAlignment="Right" Width="214" Height="29" VerticalAlignment="Top"/>
+        <Button x:Name="openFormButton" Content="Отчет" Margin="0,22,10,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="121" Click="Button_Click" Background="#FFFFD7B2"/>
+        <Button x:Name="changeButton" Margin="479,0,0,16" Click="changeButton_Click" HorizontalAlignment="Left" Width="42" Height="30" VerticalAlignment="Bottom" Background="#FFFFD7B2">
+            <Image Source="/museumAIS;component/icons/icon-edit.png"/>
+        </Button>
+        <Button x:Name="editButton" Margin="0,0,122,15.8" Content="Редактировать" HorizontalAlignment="Right" Width="128" Height="30" VerticalAlignment="Bottom" Click="editButton_Click" Visibility="Hidden" Background="#FFFFD7B2"/>
+        <GroupBox Header="Смена статуса" Margin="10,0,0,10.6" HorizontalAlignment="Left" Width="464" Height="100" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="changeStatusBox" Margin="10" HorizontalAlignment="Left" Width="183" Height="28" VerticalAlignment="Bottom" IsEnabled="False" SelectionChanged="changeStatusBox_SelectionChanged" PreviewTextInput="changeStatusBox_PreviewTextInput"/>
+                <StackPanel Orientation="Vertical" Margin="15, 0">
+                    <Label x:Name="helpLabel" Content="Дата прибытия" Margin="10, 5, 0, 0" FontSize="12" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120"/>
+                    <DatePicker x:Name="dateComeBack" Margin="10" Text="Дата прибытия" Visibility="Visible"  FirstDayOfWeek="Monday" HorizontalAlignment="Left" Width="187" Height="29" VerticalAlignment="Bottom" IsEnabled="False" PreviewTextInput="dateComeBack_PreviewTextInput"/>
+                    <ComboBox x:Name="selectHallBox" Visibility="Collapsed" Margin="10" HorizontalAlignment="Left" Width="183" Height="28" VerticalAlignment="Bottom" IsEnabled="False" PreviewTextInput="selectHallBox_PreviewTextInput"/>
+
+                </StackPanel>
+
+            </StackPanel>
+        </GroupBox>
+        <userControls:paginationControl x:Name="paginationControl"  HorizontalAlignment="Right" Height="35" Margin="0,0,31,70.8" 
+                                        VerticalAlignment="Bottom" Width="198" 
+            firstPageBut_Click="paginationControl_firstPageBut_Click" prevPageBut_Click="paginationControl_prevPageBut_Click"
+            nextPageBut_Click="paginationControl_nextPageBut_Click" lastPageBut_Click="paginationControl_lastPageBut_Click"/>
+        <Border x:Name="borderPanel" Margin="0,120,14,0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Width="243" Height="75" VerticalAlignment="Top" Visibility="Collapsed" Background="#FFB1F4FD">
+            <Border.Child>
+                <StackPanel>
+                    <Label x:Name="fLabel" Content="Выберете статус"/>
+                    <ComboBox x:Name="filtersListBox" Margin="10" SelectionChanged="filtersListBox_SelectionChanged" Visibility="Collapsed" PreviewTextInput="filtersListBox_PreviewTextInput"/>
+                    <DatePicker x:Name="dateInComeP" Margin="10" Visibility="Collapsed" SelectedDateChanged="dateInComeP_SelectedDateChanged" PreviewTextInput="dateInComeP_PreviewTextInput"/>
+                </StackPanel>
+            </Border.Child>
+        </Border>
+        <Label Content="Экспонаты" HorizontalAlignment="Left" Margin="92,10,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

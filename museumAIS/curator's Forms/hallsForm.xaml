@@ -1,0 +1,45 @@
+﻿<Window x:Class="museumAIS.hallsForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS" xmlns:userControls="clr-namespace:museumAIS.userControls"
+        mc:Ignorable="d"
+        Title="Залы" Height="496.267" Width="530" FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" Background="#FFB3F3FF" MinWidth="530" MinHeight="496.267" Closed="Window_Closed">
+    <Grid>
+        <local:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="18,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <DataGrid x:Name="dataGridV" Margin="10,131,9.6,77" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="False"
+                  CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="dataGridV_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto" Binding="{Binding Num}" Header="Номер"/>
+                <DataGridTextColumn Width="*" Binding="{Binding hall_name}" Header="Наименование"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить" Click="DeleteMenuItem_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF66FFA3" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#FF66FFA3" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="Black" />
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,9.6,12" VerticalAlignment="Bottom" Width="115" Click="addButton_Click" Height="30" Background="#FFFFD7B2"/>
+        <Button x:Name="editButton" Content="Изменить" HorizontalAlignment="Right" Margin="0,0,146.6,14" VerticalAlignment="Bottom" Width="120" Click="editButton_Click" Height="28" Visibility="Hidden" Background="#FFFFD7B2"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="10,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged" PreviewKeyDown="searchBox_PreviewKeyDown" PreviewTextInput="searchBox_PreviewTextInput"/>
+
+        <userControls:paginationControl x:Name="paginationControl" Margin="10,0,0,31" Height="36" VerticalAlignment="Bottom" 
+               HorizontalAlignment="Left" Width="155" firstPageBut_Click="paginationControl_firstPageBut_Click"
+                                        prevPageBut_Click="paginationControl_prevPageBut_Click" nextPageBut_Click="paginationControl_nextPageBut_Click"
+                                        lastPageBut_Click="paginationControl_lastPageBut_Click"/>
+        <Label Content="Залы" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+
+
+</Window>

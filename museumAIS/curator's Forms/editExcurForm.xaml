@@ -1,0 +1,54 @@
+﻿<Window x:Class="museumAIS.curator_s_Forms.editExcurForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS.curator_s_Forms" xmlns:local1="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        Title="Управление данными экскурсии" Height="647.2" Width="697.6" FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" MinWidth="697.6" MinHeight="647.2" Background="#FFB3F3FF" Closed="Window_Closed">
+    <Grid>
+        <local1:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="23,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="41" Width="41"/>
+
+        <Button x:Name="editButton" Content="Добавить" Margin="0,0,22.2,11.8" Click="editButton_Click" HorizontalAlignment="Right" Width="155" Height="27" VerticalAlignment="Bottom" Background="#FFFFD7B2"/>
+        <Label Content="Дата окончания экскурсии" HorizontalAlignment="Left" Margin="30,203,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" Height="23" Margin="30,114,283.2,0" TextWrapping="Wrap" VerticalAlignment="Top"  MaxLength="500"
+                 PreviewKeyDown="nameBox_PreviewKeyDown" PreviewTextInput="nameBox_PreviewTextInput"/>
+        <ComboBox x:Name="guidsBox" HorizontalAlignment="Right" Margin="0,254,56.2,0" VerticalAlignment="Top" Width="259" PreviewTextInput="guidsBox_PreviewTextInput" SelectionChanged="guidsBox_SelectionChanged"/>
+        <ComboBox x:Name="timeBox" HorizontalAlignment="Left" Margin="30,284,0,0" VerticalAlignment="Top" Width="108" IsEnabled="False" PreviewTextInput="timeBox_PreviewTextInput"/>
+        <Label Content="Экскурсовод" HorizontalAlignment="Right" Margin="0,212,56.2,0" VerticalAlignment="Top"/>
+        <Label Content="Время начала" HorizontalAlignment="Left" Margin="30,242,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="startDatePicker" HorizontalAlignment="Left" Margin="288,156,0,0" VerticalAlignment="Top" Width="120" FirstDayOfWeek="Monday" SelectedDateChanged="startDatePicker_SelectedDateChanged" PreviewTextInput="startDatePicker_PreviewTextInput"/>
+        <DatePicker x:Name="endDatePicker" HorizontalAlignment="Left" Margin="288,204,0,0" VerticalAlignment="Top" Width="120" FirstDayOfWeek="Monday" IsEnabled="False" SelectedDateChanged="endDatePicker_SelectedDateChanged" CalendarClosed="endDatePicker_CalendarClosed" PreviewTextInput="endDatePicker_PreviewTextInput"/>
+        <Label Content="Дата старта экскурсии" HorizontalAlignment="Left" Margin="30,157,0,0" VerticalAlignment="Top"/>
+        <Label Content="Навзание экскурсии" HorizontalAlignment="Left" Margin="23,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Длительность (ч.)" Margin="0,77,55.2,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="122"/>
+        <ComboBox x:Name="durationBox" Margin="0,111,56.2,0" VerticalAlignment="Top" PreviewTextInput="durationBox_PreviewTextInput" HorizontalAlignment="Right" Width="120"/>
+        <TextBox x:Name="hallsBox" Height="57" Margin="30,315,56.2,0" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Hidden" IsReadOnlyCaretVisible="True" PreviewTextInput="hallsBox_PreviewTextInput"/>
+        <ListView x:Name="HallListView" Margin="23,376,22.2,71.8" MouseDoubleClick="hallsView_MouseDoubleClick" Loaded="HallListView_Loaded">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel MinWidth="640" MaxWidth="{Binding ActualWidth, ElementName=HallListView}"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="1" Padding="3" CornerRadius="5">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Enabled}" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <TextBlock Text="{Binding HallName}" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Content="Управление данными экскурсии" Margin="98,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220"/>
+    </Grid>
+</Window>

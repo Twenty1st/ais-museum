@@ -1,0 +1,21 @@
+﻿<Window x:Class="museumAIS.curator_s_Forms.editHallForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS.curator_s_Forms" xmlns:local1="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        BorderThickness="1"
+        Title="Добавление зала" Height="179" Width="390" WindowStartupLocation="CenterScreen" PreviewMouseMove="Window_PreviewMouseMove" PreviewKeyDown="Window_PreviewKeyDown" MinWidth="390" MinHeight="187" WindowStyle="None" Background="#FFB3F3FF" Closed="Window_Closed" BorderBrush="Black">
+    <Grid>
+        <local1:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="16,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+
+        <Label Content="Наименование" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="16,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  MaxLength="100"
+                 Width="348" PreviewKeyDown="nameBox_PreviewKeyDown" PreviewTextInput="nameBox_PreviewTextInput"/>
+        <Button x:Name="saveButton" Content="Добавить" HorizontalAlignment="Left" Margin="255,134,0,0" VerticalAlignment="Top" Width="109" Click="saveButton_Click" Height="24" Background="#FFFFD7B2"/>
+        <Label Content="Управление данными зала" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

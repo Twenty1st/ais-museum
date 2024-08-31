@@ -1,0 +1,19 @@
+﻿<Window x:Class="museumAIS.keeper_s_Forms.otchetForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS.keeper_s_Forms" xmlns:museumais="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        BorderThickness="1"
+        Title="otchetForm" Height="149.666" Width="449.498" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FFB3F3FF" Closed="Window_Closed" BorderBrush="Black" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove">
+    <Grid>
+        <museumais:exitButtonControl exitBut_Click="exitButton_Click" x:Name="exitButton" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+        <ComboBox x:Name="statusBox" HorizontalAlignment="Left" Margin="21,94,0,0" VerticalAlignment="Top" Width="200" FontSize="14" PreviewTextInput="statusBox_PreviewTextInput"/>
+        <Button x:Name="getOtchetButton" Content="Сформировать" HorizontalAlignment="Left" Margin="308,94,0,0" VerticalAlignment="Top" Width="117" Height="29" Click="Button_Click" Background="#FFFFD7B2"/>
+        <Label Content="Формирование отчета" HorizontalAlignment="Left" Margin="68,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Выберете вариант отчета" HorizontalAlignment="Left" Margin="21,61,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

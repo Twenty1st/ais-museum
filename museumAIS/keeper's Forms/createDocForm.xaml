@@ -1,0 +1,38 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:museumAIS.keeper_s_Forms"
+        xmlns:museumAIS="clr-namespace:museumAIS" x:Class="museumAIS.keeper_s_Forms.createDocForm"
+        mc:Ignorable="d"
+        Title="Составление документа" Height="500" Width="650" FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" Closed="Window_Closed" MinWidth="650" MinHeight="500" Background="#FFB3F3FF">
+    <Grid>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="26,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" PreviewKeyDown="nameBox_PreviewKeyDown" PreviewTextInput="nameBox_PreviewTextInput"/>
+        <TextBox x:Name="manBox" HorizontalAlignment="Left" Height="23" Margin="26,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" PreviewKeyDown="manBox_PreviewKeyDown" PreviewTextInput="manBox_PreviewTextInput"/>
+        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Height="23" Margin="26,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" PreviewKeyDown="addressBox_PreviewKeyDown" PreviewTextInput="addressBox_PreviewTextInput"/>
+        <ComboBox x:Name="ecspBox" HorizontalAlignment="Left" Margin="26,323,0,0" VerticalAlignment="Top" Width="607" PreviewKeyDown="ecspBox_PreviewKeyDown"/>
+        <Label Content="Составление документа" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top"/>
+
+        <museumAIS:exitButtonControl x:Name="exitButton" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" 
+                                     VerticalAlignment="Top" Width="39" exitBut_Click="exitButton_Click"/>
+        <ComboBox x:Name="typeSend" Margin="0,68,10.2,0" VerticalAlignment="Top" SelectionChanged="typeSend_SelectionChanged" HorizontalAlignment="Right" Width="166" PreviewKeyDown="typeSend_PreviewKeyDown"/>
+        <Label Content="Музей Искусства и Истории" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="документ о передаче экспоната на" HorizontalAlignment="Right" Margin="0,68,189.2,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelM" Content="Наименование музея где проходит выставка" HorizontalAlignment="Left" Margin="26,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Адрес" HorizontalAlignment="Left" Margin="26,165,0,0" VerticalAlignment="Top"/>
+        <Label Content="Контактное лицо" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top"/>
+        <Label Content="Экспонат" HorizontalAlignment="Left" Margin="26,289,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="typeTrasportBox" HorizontalAlignment="Left" Margin="26,387,0,0" VerticalAlignment="Top" Width="428" PreviewKeyDown="typeTrasportBox_PreviewKeyDown"/>
+        <Label Content="Тип транспортировки" HorizontalAlignment="Left" Margin="26,353,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dateSend" HorizontalAlignment="Right" Margin="0,199,10.2,0" VerticalAlignment="Top" Width="142" FirstDayOfWeek="Monday" PreviewKeyDown="dateSend_PreviewKeyDown"/>
+        <Label Content="Дата отправки" HorizontalAlignment="Right" Margin="0,165,48.2,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dateComeBack" HorizontalAlignment="Right" Margin="0,261,10.2,0" VerticalAlignment="Top" Width="142" FirstDayOfWeek="Monday" PreviewKeyDown="dateComeBack_PreviewKeyDown"/>
+        <Label Content="Дата возвращения" HorizontalAlignment="Right" Margin="0,227,22.2,0" VerticalAlignment="Top"/>
+        <Button x:Name="createDocButton" Content="Создать документ" HorizontalAlignment="Right" Margin="0,0,22.2,58.4" VerticalAlignment="Bottom" Width="130" Height="25" Click="createDocButton_Click" Background="#FFFFD7B2"/>
+        <Button Content="Очистить поля" HorizontalAlignment="Right" Margin="0,0,22.2,18.4" VerticalAlignment="Bottom" Width="130" Height="25" Background="#FFFFD7B2" Click="Button_Click"/>
+        <Label x:Name="label" Content="Наименование выставки" HorizontalAlignment="Right" Margin="0,103,65.2,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox x:Name="nameVBox" HorizontalAlignment="Right" Height="23" Margin="0,137,10.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Visibility="Hidden" PreviewTextInput="nameVBox_PreviewTextInput" PreviewKeyDown="nameVBox_PreviewKeyDown"/>
+
+    </Grid>
+</Window>

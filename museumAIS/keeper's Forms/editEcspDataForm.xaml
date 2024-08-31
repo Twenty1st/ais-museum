@@ -1,0 +1,48 @@
+﻿<Window x:Class="museumAIS.keeper_s_Forms.editEcspDataForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:museumais="clr-namespace:museumAIS"
+        mc:Ignorable="d"
+        Title="Управление данными экспоната" Height="508.8" Width="800" FontSize="14" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseMove="Window_PreviewMouseMove" MinWidth="800" MinHeight="508" Background="#FFB3F3FF" Closed="Window_Closed">
+    <Grid>
+        <museumais:exitButtonControl x:Name="exitButton" exitBut_Click="exitButton_Click" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="41" Width="42"/>
+
+        <Image x:Name="imageBox" HorizontalAlignment="Right" Height="148" Margin="0,157,49.6,0" VerticalAlignment="Top" Width="140" Source="picture.png"/>
+        <Label Content="Управление данными экспоната" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Музейное обозначение экспоната*" HorizontalAlignment="Left" Margin="18,51,0,0" VerticalAlignment="Top"/>
+        <Label Content="Наименование*" HorizontalAlignment="Left" Margin="18,123,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="cipher_fund_ecsponatBox" HorizontalAlignment="Left" Height="23" Margin="18,85,0,0" TextWrapping="Wrap"  MaxLength="10"
+                 VerticalAlignment="Top" Width="86" PreviewKeyDown="cipher_fund_ecsponatBox_PreviewKeyDown" PreviewTextInput="cipher_fund_ecsponatBox_PreviewTextInput"/>
+        <TextBox x:Name="cipher_stock_ecsponatBox" HorizontalAlignment="Left" Height="23" Margin="134,85,0,0" TextWrapping="Wrap"  MaxLength="10"
+                 VerticalAlignment="Top" Width="60" PreviewKeyDown="cipher_stock_ecsponatBox_PreviewKeyDown" PreviewTextInput="cipher_stock_ecsponatBox_PreviewTextInput"/>
+        <TextBox x:Name="reg_number_ecsponatBox" HorizontalAlignment="Left" Height="23" Margin="219,85,0,0" TextWrapping="Wrap"  MaxLength="8"
+                 VerticalAlignment="Top" Width="50" PreviewKeyDown="reg_number_ecsponatBox_PreviewKeyDown" PreviewTextInput="reg_number_ecsponatBox_PreviewTextInput"/>
+        <TextBox x:Name="nameBox" Height="23" Margin="18,157,239.6,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="nameBox_PreviewKeyDown" PreviewTextInput="nameBox_PreviewTextInput"/>
+        <Label Content="Краткое описание" HorizontalAlignment="Left" Margin="18,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="descBox" Height="80" Margin="18,225,239.6,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="descBox_PreviewKeyDown" PreviewTextInput="descBox_PreviewTextInput"/>
+        <TextBox x:Name="sizeBox" HorizontalAlignment="Left" Height="23" Margin="18,437,0,0" TextWrapping="Wrap"  MaxLength="50"
+                 VerticalAlignment="Top" Width="249" PreviewKeyDown="sizeBox_PreviewKeyDown" PreviewTextInput="sizeBox_PreviewTextInput"/>
+        <Label Content="Размер/вес*" HorizontalAlignment="Left" Margin="18,403,0,0" VerticalAlignment="Top"/>
+        <Label Content="Изображение" HorizontalAlignment="Right" Margin="0,123,90.6,0" VerticalAlignment="Top"/>
+        <Label Content="Дата получения" HorizontalAlignment="Right" Margin="0,51,77.6,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dateInComePicker" HorizontalAlignment="Right" Margin="0,89,49.6,0" VerticalAlignment="Top" Width="140" FirstDayOfWeek="Monday" PreviewTextInput="dateInComePicker_PreviewTextInput"/>
+        <Label Content="Дата создания*" HorizontalAlignment="Right" Margin="0,51,276.6,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dateCreateBox" HorizontalAlignment="Right" Height="23" Margin="0,89,239.6,0" TextWrapping="Wrap"  MaxLength="50"
+                 VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="chooseFileButton" HorizontalAlignment="Right" Margin="0,285,13.6,0" VerticalAlignment="Top" Width="28" Height="20" Click="chooseFileButton_Click" Background="#FFFFD7B2">
+            <Button.Content>
+                <Image Source="/museumAIS;component/icons/icon-choosefile.png"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="editButton" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,27.6,19.2" VerticalAlignment="Bottom" Width="140" Height="28" Click="editButton_Click" Background="#FFFFD7B2"/>
+        <TextBox x:Name="materialBox" Height="23" Margin="18,362,239.6,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="materialBox_PreviewKeyDown" PreviewTextInput="materialBox_PreviewTextInput"/>
+        <Label Content="Материал* (через запятую)" HorizontalAlignment="Left" Margin="18,327,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="hallBox" HorizontalAlignment="Right" Margin="0,437,239.6,0" VerticalAlignment="Top" Width="255" PreviewTextInput="hallBox_PreviewTextInput" Visibility="Hidden"/>
+        <ComboBox x:Name="statusBox" HorizontalAlignment="Right" Margin="0,360,27.6,0" VerticalAlignment="Top" Width="120" SelectionChanged="statusBox_SelectionChanged" PreviewTextInput="statusBox_PreviewTextInput"/>
+        <Label x:Name="hallLabel" Content="Зал*" HorizontalAlignment="Right" Margin="0,403,454.6,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Content="Статус" HorizontalAlignment="Right" Margin="0,358,166.6,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
